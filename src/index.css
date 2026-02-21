@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 96%;
+    --foreground: 0 0% 18%;
+
+    --card: 30 30% 95%;
+    --card-foreground: 0 0% 18%;
+
+    --popover: 30 33% 96%;
+    --popover-foreground: 0 0% 18%;
+
+    --primary: 25 52% 40%;
+    --primary-foreground: 35 40% 95%;
+
+    --secondary: 35 40% 92%;
+    --secondary-foreground: 25 52% 40%;
+
+    --muted: 30 20% 90%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 36 90% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 25 52% 40%;
+
+    --radius: 0.75rem;
+
+    --warm-cream: 35 40% 95%;
+    --warm-brown: 25 52% 40%;
+    --deep-saffron: 36 90% 45%;
+    --dark-brown: 25 30% 20%;
+    --light-beige: 30 33% 96%;
+    --warm-overlay: 30 40% 50%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
+  }
+
+  .glass-nav {
+    @apply bg-background/80 backdrop-blur-lg shadow-sm border-b border-border/50;
+  }
+
+  .glass-nav-scrolled {
+    @apply bg-background/95 shadow-md border-border/80;
+  }
+
+  .warm-gradient {
+    background: linear-gradient(135deg, hsl(var(--warm-cream)), hsl(var(--background)));
+  }
+
+  .saffron-gradient {
+    background: linear-gradient(135deg, hsl(var(--deep-saffron)), hsl(var(--primary)));
+  }
+
+  .dark-section {
+    background-color: hsl(var(--dark-brown));
+    color: hsl(var(--warm-cream));
+  }
+
+  .signature-strip {
+    background: linear-gradient(135deg, hsl(25 30% 25%), hsl(25 40% 18%));
+  }
+
+  .card-warm {
+    @apply bg-card rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+    @apply rounded-full px-6 py-3 font-medium transition-all duration-300 hover:shadow-lg;
+  }
+
+  .whatsapp-btn:hover {
+    animation: pulse-glow 1.5s infinite;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 0 20px 6px rgba(37, 211, 102, 0.2); }
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 15s ease-in-out infinite alternate;
+}
+
+html {
+  scroll-behavior: smooth;
+}
