@@ -26,6 +26,7 @@ const menuData: Omit<MenuItem, "image">[] = [
   { name: "Puran Poli", desc: "Classic festive poli filled with sweet chana dal and jaggery mixture.", category: "Traditional Maharashtrian Specials", details: "Prepared using paramparik methods for that authentic, melt-in-mouth experience." },
   { name: "Sabudana Vada", desc: "Crispy golden vadas made with sabudana and roasted peanuts.", category: "Traditional Maharashtrian Specials", details: "Light, crunchy, and perfect for fasting days or evening cravings." },
   { name: "Gajar Halwa", desc: "Slow-cooked grated carrots blended with milk, ghee, and natural sweetness.", category: "Sweets & Breads", details: "Rich, comforting, and filled with warmth — a timeless festive delight." },
+  { name: "Gulab Jamun", desc: "Soft, golden-fried dumplings soaked in rich sugar syrup.", category: "Sweets & Breads", details: "Delicately flavored with cardamom and crafted to deliver a melt-in-the-mouth indulgence with every bite." },
 ];
 
 const menuItems: MenuItem[] = menuData.map((item) => ({
@@ -63,8 +64,8 @@ const MenuSection = () => {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${activeCategory === cat
-                  ? "saffron-gradient text-accent-foreground shadow-md"
-                  : "bg-secondary text-muted-foreground hover:text-foreground"
+                ? "saffron-gradient text-accent-foreground shadow-md"
+                : "bg-secondary text-muted-foreground hover:text-foreground"
                 }`}
             >
               {cat}
