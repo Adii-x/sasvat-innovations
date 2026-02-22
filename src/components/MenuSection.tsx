@@ -67,7 +67,7 @@ const MenuSection = () => {
   const filtered = activeCategory === "All" ? menuItems : menuItems.filter((m) => m.category === activeCategory);
 
   const whatsappLink = (name: string) =>
-    `https://wa.me/919999999999?text=${encodeURIComponent(`Hi! I'd like to order ${name} from Sasvat Innovations.`)}`;
+    `https://wa.me/918459253221?text=${encodeURIComponent(`Hi! I'd like to order ${name} from Sasvat Innovations.`)}`;
 
   return (
     <section id="menu" className="section-padding">
