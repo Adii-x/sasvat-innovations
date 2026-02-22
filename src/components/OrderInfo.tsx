@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { CalendarDays, Clock, MapPin, Gift, MessageCircle } from "lucide-react";
 
 const details = [
-  { icon: CalendarDays, title: "Mon – Friday", desc: "We accept orders on weekdays." },
+  { icon: CalendarDays, title: "Mon – Fri", desc: "We accept orders on weekdays." },
   { icon: Clock, title: "Advance Orders", desc: "Please place orders at least 24 hours in advance." },
   { icon: MapPin, title: "Delivery Areas", desc: "We deliver across the city. Contact us for details." },
   { icon: Gift, title: "Bulk & Festival Orders", desc: "Custom orders for festivals, events & gatherings." },

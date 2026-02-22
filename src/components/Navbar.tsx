@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logoImg from "@/assets/logo.png";
+import { scrollToSection } from "@/lib/scroll";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -24,7 +25,7 @@ const Navbar = () => {
 
   const handleClick = (href: string) => {
     setIsOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => scrollToSection(href), 310); // wait for hamburger close animation
   };
 
   const isHero = !scrolled;
@@ -45,9 +46,8 @@ const Navbar = () => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={navTransition}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-nav glass-nav-scrolled" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-nav glass-nav-scrolled" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3 sm:py-4">
         <motion.button

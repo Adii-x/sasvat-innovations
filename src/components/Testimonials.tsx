@@ -7,6 +7,7 @@ const reviews = [
   { name: "Sneha K.", review: "The modaks were divine! Ordered for Ganesh Chaturthi and everyone loved them.", rating: 5 },
   { name: "Amit D.", review: "Fresh, hygienic, and so authentic. Now I don't miss home food anymore.", rating: 5 },
   { name: "Meera J.", review: "Ordered the besan laddus for Diwali — they vanished within hours! 😄", rating: 5 },
+  { name: "Vikram P.", review: "The sabudana vada was crispy on the outside, perfectly soft inside. Reminded me of home!", rating: 5 },
 ];
 
 const Testimonials = () => (

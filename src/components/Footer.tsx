@@ -1,9 +1,8 @@
 import logoImg from "@/assets/logo.png";
+import { scrollToSection } from "@/lib/scroll";
 
 const Footer = () => {
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollTo = scrollToSection;
 
   return (
     <footer className="dark-section py-12">
@@ -22,7 +21,7 @@ const Footer = () => {
           <nav className="flex flex-wrap justify-center gap-4 text-sm">
             {["#home", "#menu", "#why-us", "#testimonials", "#order", "#contact"].map((href) => (
               <button key={href} onClick={() => scrollTo(href)} className="opacity-70 transition-opacity hover:opacity-100">
-                {href.replace("#", "").replace("-", " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                {href.replace("#", "").replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
               </button>
             ))}
           </nav>

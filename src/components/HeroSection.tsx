@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-food.jpg";
+import { scrollToSection } from "@/lib/scroll";
 
 const HeroSection = () => {
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollTo = scrollToSection;
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">

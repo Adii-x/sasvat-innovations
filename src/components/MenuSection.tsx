@@ -1,32 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-
-import heroFood from "@/assets/hero-food.jpg";
-
-// Load all images from assets; keys are resolved paths containing the filename
-const assetImages = import.meta.glob<{ default: string }>("@/assets/*.{jpg,jpeg,png,webp}", { eager: true });
-
-/** Dish name → asset filename (no extension). Matches your actual files in src/assets. */
-const nameToSlug: Record<string, string> = {
-  "Gajar Halwa": "gajar-halva",
-  "Veg Grilled Sandwich": "sandwitch",
-  "Sabudana Vada": "shabudana-vada",
-  "Shengdana Gul Poli": "shengdana-poli",
-  "Mushroom Bhaji": "mashroom-bhaji",
-  "Dry Fruit Laddu": "dery-fruit-laddu",
-};
-function getImageForName(name: string): string {
-  const slug = nameToSlug[name] ?? name.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
-  const norm = (s: string) => s.toLowerCase().replace(/_/g, "-").replace(/,/g, "");
-  const slugNorm = norm(slug);
-  const entry = Object.entries(assetImages).find(([path]) => {
-    const base = path.replace(/^.*[/\\]/, "").replace(/\.[^.]+$/, "").toLowerCase();
-    const baseNorm = norm(base);
-    return baseNorm === slugNorm || baseNorm === norm(`food-${slug}`);
-  });
-  return entry ? (entry[1] as { default: string }).default : heroFood;
-}
+import { getImageForName } from "@/lib/assets";
 
 interface MenuItem {
   name: string;
@@ -87,11 +62,10 @@ const MenuSection = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${
-                activeCategory === cat
+              className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${activeCategory === cat
                   ? "saffron-gradient text-accent-foreground shadow-md"
                   : "bg-secondary text-muted-foreground hover:text-foreground"
-              }`}
+                }`}
             >
               {cat}
             </button>
